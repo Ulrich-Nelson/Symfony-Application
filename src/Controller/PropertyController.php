@@ -15,10 +15,10 @@ class PropertyController extends AbstractController
     private $repository;    
     private $em;
     
-    public function __construct(PropertyRepository $repository, ManagerRegistry $EntityManager)
+    public function __construct(PropertyRepository $repository, ManagerRegistry $em)
     {
         $this->repository = $repository;
-        $this->em = $EntityManager;
+        $this->em = $em;
 
     }
     
