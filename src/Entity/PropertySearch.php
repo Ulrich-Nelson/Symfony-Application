@@ -2,6 +2,7 @@
 //mise en place du système de filtre dans nos recherches
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -26,7 +27,16 @@ class PropertySearch
      */
     private $minSurface;
 
+    
+    /**
+     * @var ArrayCollection
+     */
+    private $options;
 
+    public function __construct()
+    {
+        $this->options = new ArrayCollection();
+    }
     
 
     /**
@@ -67,5 +77,27 @@ class PropertySearch
         $this->minSurface = $minSurface;
 
         return $this;
+    }
+
+    /**
+     * Get option pour ajouter des options à nos biens
+     *
+     * @return  ArrayCollection
+     */ 
+    public function getOptions(): ArrayCollection
+    {
+        return $this->options;
+    }
+
+    /**
+     * Set option pour ajouter des options à nos biens
+     *
+     * @param  ArrayCollection  $options  option pour ajouter des options à nos biens
+     *
+     */ 
+    public function setOptions(ArrayCollection $options):void
+    {
+        $this->options = $options;
+
     }
 }
