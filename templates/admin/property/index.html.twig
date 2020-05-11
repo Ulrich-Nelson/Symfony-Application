@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{ property.title}}</td>
                     <td>
-                        <a href="{{path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary" rel="editer un bien">Editer un bien</a>
+                        <a href="{{path('admin.property.edit', {id: property.id}) }}" class="btn btn-primary" rel="editer un bien">Editer un bien</a>
                         <form method="POST" action="{{ path('admin.property.delete', {id: property.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes vous sûr ?')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">
@@ -35,7 +35,7 @@
             </tbody>
         </table>
         <div class="text-right">
-            <a href="{{ path('admin.property.new') }}" class="btn btn-primary">Créer un nouveau bien</a>
+            <a href="{{ path('admin.property.new') }}" class="btn btn-info">Créer un nouveau bien</a>
         </div>
     </div>
 
