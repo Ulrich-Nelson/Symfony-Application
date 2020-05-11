@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Property;
 use App\Repository\PropertyRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -26,14 +28,19 @@ class PropertyController extends AbstractController
     /**
      * @Route("/biens", name="property.index")
      * 
-     * @return Response
+     * @return Response l'ensemble des biens de l'application
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        return $this->render('property/property.html.twig', [
+        $properties = $paginator->paginate($this->repository->findAllVisibleQuery(),
+        $request->query->getInt('page', 1),
+        12);
+        
+        return $this->render('property/index.html.twig', [
             'controller_name' => 'PropertyController',
             //pour rendre le boutton actiff au clique mais il sera modifier
-            'current_menu' => 'properties'
+            'current_menu' => 'properties',
+            'properties' => $properties
         ]);
     }
 

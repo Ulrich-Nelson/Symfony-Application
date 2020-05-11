@@ -26,14 +26,5 @@ class SecurityController extends AbstractController{
          ]);
      }
 
-    
-    /**
-     * @Route("/", name="logout ")
-     * @return void
-     */
-    public function logout()
-    {
-        //ne retourne rien car permet la deconnexion
-    }
 
 }
