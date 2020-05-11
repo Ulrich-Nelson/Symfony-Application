@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Property;
+use App\Entity\PropertySearch;
+use App\Form\PropertySearchType;
 use App\Repository\PropertyRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +34,14 @@ class PropertyController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        $properties = $paginator->paginate($this->repository->findAllVisibleQuery(),
+        //traitement de la recherche d'un bien
+        $search = new PropertySearch();
+        $form = $this->createForm(PropertySearchType::class,  $search);
+        $form->handleRequest($request);
+
+        //système de pagination
+        $properties = $paginator->paginate(
+        $this->repository->findAllVisibleQuery($search),
         $request->query->getInt('page', 1),
         12);
         
@@ -40,7 +49,9 @@ class PropertyController extends AbstractController
             'controller_name' => 'PropertyController',
             //pour rendre le boutton actiff au clique mais il sera modifier
             'current_menu' => 'properties',
-            'properties' => $properties
+            'properties' => $properties,
+            'form' => $form->createView()
+
         ]);
     }
 
