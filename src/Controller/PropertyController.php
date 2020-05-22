@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Property;
+use App\Form\ContactType;
 use App\Entity\PropertySearch;
 use App\Form\PropertySearchType;
 use App\Repository\PropertyRepository;
+use App\Notification\ContactNotification;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -60,8 +63,9 @@ class PropertyController extends AbstractController
      *
      * @return Response
      */
-    public function show(Property $property, string $slug): Response
+    public function show(Property $property, string $slug, Request $request, ContactNotification $notification):Response
     {
+       
         if ($property->getSlug() !== $slug) {
             return $this->redirectToRoute('property.show', [
                 'id' => $property->getId(),
@@ -69,11 +73,30 @@ class PropertyController extends AbstractController
             ], 301);
         }
 
+         //création du formulaire de contact
+        $contact = new Contact();
+        $contact->setProperty($property);
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+        
+
+        //traitement de la requête
+        if ($form->isSubmitted() && $form->isValid()) {
+            //traiment de l'envoie dans le classe ContactNotification
+            $notification->notify($contact);
+            $this->addFlash('success', "Message envoyé, il vous repondra dans les brefs délais!");
+            return $this->redirectToRoute('property.show', [
+                'id' => $property->getId(),
+                'slug' => $property->getSlug()
+            ]);
+        }
+
         return $this->render('property/show.html.twig', [
             'controller_name' => 'PropertyController',
             'property' => $property,
             //pour rendre le boutton actiff au clique mais il sera modifier
-            'current_menu' => 'properties'
+            'current_menu' => 'properties',
+            'form' => $form->createView()
             ]);
 
     }
