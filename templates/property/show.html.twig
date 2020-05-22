@@ -29,8 +29,8 @@
                     <h2>{{ property.title}}</h2>
                     <h2>{{ property.rooms}} pièces - {{ property.surface}} m²</h2>
                     <div class="text-primary" style="font-size: 3rem;font-weight: bold;">{{property.FormattedPrice}} FCFA</div>
-                    <a href="#" class="btn btn-primary" rel="contacter le responsable">Contacter le responsable</a>
-                    <div id="contactForm" class="mt-4">
+                    <a href="#" class="btn btn-primary" rel="contacter le responsable" id="contactButton" {% if form.vars.submitted %} style="display: none;" {% endif %}> Contacter le responsable </a>
+                    <div id="contactForm" class="mt-4" {% if not form.vars.submitted %} style="display: none;" {% endif %} >
                          {{ form_start(form) }}
                          <div class="row">
                              <div class="col">{{ form_row(form.firstname) }}</div>

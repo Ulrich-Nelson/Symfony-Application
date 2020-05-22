@@ -4,12 +4,15 @@
 		<meta charset="UTF-8">
 		<title>{% block title %}Welcome!{% endblock %}</title>
 
-			{% block stylesheets %}	{% endblock %}
+			{% block stylesheets %}
 			<!-- Latest compiled and minified CSS -->
 			<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css">
-		
+			 		{{ encore_entry_link_tags('app') }}
+			{% endblock %}
+
 		</head>
+
 		<body>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<a class="navbar-brand" href="{{ path('home') }}">Agence Camer</a>
@@ -38,11 +41,12 @@
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
-			<script>
+			<!--<script>
 				$('select').select2();
-			</script>
-			{% block javascripts %}{% endblock %}
+			</script>-->
+			{% block javascripts %}
+					{{ encore_entry_script_tags('app') }}
+			{% endblock %}
 		</body>
-	</head>
 </html>
 
