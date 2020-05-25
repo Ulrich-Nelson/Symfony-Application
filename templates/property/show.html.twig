@@ -21,7 +21,7 @@
                 <div class="col-md-8">
                     <div data-slider>
                         {% if property.pictures is empty %}
-                        <img src="{{ '/images/properties/empty.jpg' | imagine_filter('medium') }}" alt="card-img-top"
+                        <img  src="{{ '/images/empty.jpg' | imagine_filter('medium')  }}" alt="card-img-top"
                             style="width: 100%; height: auto;">
                         {% else %}
                         {% for picture in property.pictures %}
@@ -36,7 +36,7 @@
                     <h2>{{ property.rooms}} pièces - {{ property.surface}} m²</h2>
                     <div class="text-primary" style="font-size: 3rem;font-weight: bold;">{{property.FormattedPrice}} FCFA</div>
                     <a href="#" class="btn btn-primary" rel="contacter le responsable" id="contactButton" {% if form.vars.submitted %} style="display: none;" {% endif %}> Contacter le responsable </a>
-                    <div id="contactForm" class="mt-4" {% if not form.vars.submitted %} style="display: none;" {% endif %} >
+                    <div id="contactForm" class="mt-4" {% if not form.vars.submitted %} style="display: block;" {% endif %} >
                          {{ form_start(form) }}
                          <div class="row">
                              <div class="col">{{ form_row(form.firstname) }}</div>
@@ -48,9 +48,6 @@
                             <div class="col">{{ form_row(form.email) }}</div>
                         </div>
                         {{ form_rest(form)}}
-                        <div class="form-group">
-                            <button class="btn btn-primary">Contacter</button>
-                        </div>
                         {{ form_end(form) }}
                     </div>
                 </div>
