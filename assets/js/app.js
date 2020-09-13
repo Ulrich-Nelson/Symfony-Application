@@ -59,29 +59,45 @@ $contactButton.click(event => {
 })
 
 
+// pour rendre les liens actifs
+$(document).ready(function () {
+function ONCLICK() {
+    const currentLocalisation = location.href;
+    const menuItem = document.querySelectorAll("a");
+    const menuLength = menuItem.length;
+    for (let i = 0; i < menuLength; i++) {
+        if (menuItem[i].href === currentLocalisation) {
+            menuItem[i].className = "active";
+        }
+
+    }
+}
+ONCLICK();
+});
+
+
 //suppression des elements (les images, .....)
-document.querySelectorAll('[data-delete]').forEach(a =>{
+document.querySelectorAll('[data-delete]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault()
         fetch(a.getAttribute('href'), {
             method: 'DELETE',
             headers: {
-                'X-Requested-With' : 'XMLHttpRequest',
+                'X-Requested-With': 'XMLHttpRequest',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({'_token': a.dataset.token})
+            body: JSON.stringify({ '_token': a.dataset.token })
         }).then(response => response.json())
-          .then(data => {
-              if(data.success){
+            .then(data => {
+                if (data.success) {
                     a.parentNode.parentNode.removeChild(a.parentNode)
-              }else{
-                  alert(data.error)
-              }
-          })
-          .catch(e => alert(e))
+                } else {
+                    alert(data.error)
+                }
+            })
+            .catch(e => alert(e))
     })
 })
-
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';

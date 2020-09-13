@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container mt-4">
-        <h1>Gérer les options</h1>
+        <h1 class="gererOption">Gérer les options</h1>
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{message}}
@@ -13,8 +13,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Nom</th>
-                    <th>Actions</th>
+                    <th>Nom de l'option</th>
+                    <th>Actions </th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{ option.name}}</td>
                     <td>
-                        <a href="{{path('admin.option.edit', {id: option.id}) }}" class="btn btn-primary" rel="editer un bien">Editer un bien</a>
+                        <a href="{{path('admin.option.edit', {id: option.id}) }}" class="btn btn-primary" rel="editer un bien">Editer une option</a>
                         <form method="POST" action="{{ path('admin.option.delete', {id: option.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes vous sûr ?')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ option.id) }}">
@@ -35,9 +35,8 @@
             </tbody>
         </table>
         <div class="text-right">
-            <a href="{{ path('admin.option.new') }}" class="btn btn-info">Créer un nouveau bien</a>
+            <a href="{{ path('admin.option.new') }}" class="btn btn-info">Créer une nouvelle option</a>
         </div>
     </div>
-
 {% endblock %}
 

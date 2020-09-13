@@ -29,14 +29,14 @@ class PropertyController extends AbstractController
 
     }
     
-
     /**
      * @Route("/biens", name="property.index")
      * 
-     * @return Response l'ensemble des biens de l'application
+     * @return Response liste l'ensemble des biens de l'application
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
+        
         //traitement de la recherche d'un bien
         $search = new PropertySearch();
         $form = $this->createForm(PropertySearchType::class,  $search);
@@ -50,7 +50,7 @@ class PropertyController extends AbstractController
         
         return $this->render('property/index.html.twig', [
             'controller_name' => 'PropertyController',
-            //pour rendre le boutton actiff au clique mais il sera modifier
+            //pour rendre le boutton actif au clique mais il sera modifier
             'current_menu' => 'properties',
             'properties' => $properties,
             'form' => $form->createView()
@@ -61,7 +61,7 @@ class PropertyController extends AbstractController
     /**
      * @Route("/biens/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*"})
      *
-     * @return Response
+     * @return Response afficher les détails d'un bien en particulier
      */
     public function show(Property $property, string $slug, Request $request, ContactNotification $notification):Response
     {
@@ -80,7 +80,7 @@ class PropertyController extends AbstractController
         $form->handleRequest($request);
         
 
-        //traitement de la requête
+        //traitement de la requête 
         if ($form->isSubmitted() && $form->isValid()) {
             //traiment de l'envoie dans le classe ContactNotification
             $notification->notify($contact);
@@ -94,7 +94,7 @@ class PropertyController extends AbstractController
         return $this->render('property/show.html.twig', [
             'controller_name' => 'PropertyController',
             'property' => $property,
-            //pour rendre le boutton actiff au clique mais il sera modifier
+            //pour rendre le boutton actif au clique mais il sera modifier
             'current_menu' => 'properties',
             'form' => $form->createView()
             ]);

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title 'Mon profil' %}
+
+
+
+
+{% block body %}
+	<div class="container m-b-5">
+    <h1>Profil de {{ app.user.username}}</h1>
+		nom:  {{ app.user.username}} <br>
+		email: {{ app.user.email}}<br>
+		Téléphone: {{ app.user.phone}}<br>
+		nombre de biens en ligne: {{ app.user.properties | length}}
+<div>
+	<a href="{{ path('admin.profile.edit', {id: app.user.id}) }}" class="btn btn-primary">Modifier mon profile</a>
+	<a href="{{ path('admin.property.new') }}" class="btn btn-info">Modifier le mot de passe</a>
+</div>
+
+	</div>
+{% endblock %}

@@ -3,13 +3,15 @@
 
 
 {% block body %}
-	<div class="jumbotron text-center">
-		<h1>Ma super Agence Camer</h1>
-		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo nostrum aspernatur eaque et nobis est nemo laudantium soluta quisquam, laboriosam amet, hic odit ipsam accusantium facere temporibus minima, iste itaque!</p>
+
+	<div class="container text-center">
+        <h1 class="IndexPage">Bienvenue sur le site de publications et de locations des biens immobiliers au Cameroun</h1>
+		<h1>Appart <em class="text-success">Ca</em><em class="text-danger">me</em><em class="text-warning">r</em> </h1>
+		<p>Plate forme dédiée à la publication et recherche des biens immobilièrs </p>
 	</div>
 
 	<div class="container">
-		<h2>Les derniers biens</h2>
+		<h2 class="last-biens">Les dernières publications</h2>
 		<div class="row flex">
 			{% for property in properties %}
 			<div class="col-3">
@@ -18,5 +20,11 @@
 			{% endfor %}
 		</div>
 	</div>
+
+		<div class="container">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nesciunt tenetur quas aperiam deleniti velit illum numquam necessitatibus eum quod voluptatibus deserunt consectetur quam debitis, exercitationem officia adipisci totam facilis.
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ex consectetur sunt quae? Laborum cumque nesciunt magni impedit, ab quo dignissimos eum! Eaque accusamus a quos veritatis voluptates quo dolorum.
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, quos. Qui molestiae totam ab placeat amet impedit ducimus tenetur nostrum ullam repudiandae. Nulla tenetur cupiditate deleniti eaque maiores repellat esse!
+		</div>
 {% endblock %}
 

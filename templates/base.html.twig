@@ -2,32 +2,46 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>{% block title %}Welcome!{% endblock %}</title>
+		<title>{% block title %}Bievenue!{% endblock %}</title>
 
 			{% block stylesheets %}
-			<!-- Latest compiled and minified CSS -->
-			<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+			<!-- Latest compiled and minified CSS -->		
+			<link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css">
+			<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Pinyon+Script&display=swap" rel="stylesheet">
+			
 			 		{{ encore_entry_link_tags('app') }}
 			{% endblock %}
 
 		</head>
 
 		<body>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<a class="navbar-brand" href="{{ path('home') }}">Agence Camer</a>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
+			<a class="navbar-brand logo-name" href="{{ path('home') }}"><em class="text-success">Ca</em><em class="text-danger">me</em><em class="text-warning">r</em> Appart 
+        <img class="logo" src="/images/logo.jpg" alt="Le Camer"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="navbarColor01">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" {% if current_menu is defined and current_menu == 'properties' %} active {% endif %} href="{{ path('property.index') }}">Louer</a>
-					</li>
-					{% if app.user %}
+			<div class="collapse navbar-collapse  nelson-rigth" id="navbarColor01">
+				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('logout') }}">Se déconnecter</a>
+						<a class="nav-link"  href="{{ path('property.index') }}">Rechercher</a>
+					</li>
+					{% if not app.user %}
+					<li class="nav-item ">
+						<a class="nav-link" href="{{ path('login') }}">Connexion </a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('admin.property.index') }}">Mes biens </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('admin.profile.view') }}">Mon profil </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('logout') }}">Deconnexion</a>
 					</li>
 				{% endif %}
 				</ul>
@@ -35,18 +49,44 @@
 			</nav>
 
 			{% block body %}{% endblock %}
+			<footer class="footer">
+    <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+            <h2><span> A propos du site</span></h2>
+            <span class="color">Chasseur d'appart Kamer<br>
+                Un site immobilier de particulier à particulier !
+Contrairement aux autres portails immobiliers, <span> appart Kamer</span> est un site particulièrement destiné aux responsables directes des biens. Cela permet ainsi donc un rapprochement direct entre propriétaire et futur locataire✌</span>
+    </div>
+    <div class="footer-center col-md-4 col-sm-6">
+        <div>
+            <h2><span>A propos de l'auteur</span></h2>
+            <p><i class="fa fa-map-marker"></i> Paris, France</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="http://ulrich-nelson.fr/" target="_blank">ulrichnelsontapinfo@yahoo.fr✍</a></p>
+        </div>
+    </div>
+    <div class="footer-right col-md-4 col-sm-6">
+        <h2><span>Chasseur d'appart✌</span></h2>
+        <img class="image-camer" src="/images/camer.jpg" alt="Le Camer">
+    </div>
+</footer>
 			<!-- jQuery library -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<!-- Latest compiled JavaScript -->
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
+    		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+			
 			<!--<script>
 				$('select').select2();
 			</script>-->
 			{% block javascripts %}
 					{{ encore_entry_script_tags('app') }}
 			{% endblock %}
+			
 		</body>
 </html>
 

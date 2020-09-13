@@ -69,7 +69,7 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * findAllVisible recherche les derniers biens
+     * findAllVisible recherche les derniers biens (publier les 04 derniers biens)
      *
      * @return Property[]
      * 
@@ -84,7 +84,7 @@ class PropertyRepository extends ServiceEntityRepository
 
         
     /**
-     * findAllVsisibleQuery pour factoriser le code
+     * findAllVsisibleQuery pour factoriser le code (récupère tous les biens dont le solde est à false)
      *
      * @return QueryBuilder
      */

@@ -37,7 +37,7 @@ class Picture
     private $filename;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Property::class, inversedBy="pictures")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Property", inversedBy="pictures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $property;

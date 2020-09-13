@@ -1,29 +1,31 @@
 {% extends 'base.html.twig' %}
+
 {% block title 'Se connecter' %}
 
-
 {% block body %}
-<div class="container mt-5">
-
+	<div class="container mt-4">
+	
     {% if error %}
-        <div class="alert alert-danger">
-            {{ error.messageKey | trans(error.messagedata, 'security') }}
-        </div>
+      <div class="alert alert-danger">
+        {{ error.messageKey | trans(error.messagedata, 'security') }}
+      </div>
     {% endif %}
-        
-    <form action="{{ path('login')}}" method="POST">
-        <div class="form-group">
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" placeholder="Nom" id="username" name="_username" required class="form-control" value="{{last_username}}">
-        </div>
-    
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password"  placeholder="Mot de passe" id="password"  required name="_password" class="form-control">
-        </div>
-    
-        <button type="submit" class="btn btn-primary">Se connecter</button>
-    </form>
-</div>
 
+		<form action="{{ path('login') }}" method="post">
+			<div class="form-group">
+				<label for="username">Adresse email ...</label>
+				<input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}">
+			</div>
+
+			<div class="form-group">
+				<label for="password">Mot de passe ...</label>
+				<input type="password" id="password" name="_password" class="form-control" >
+			</div>
+			<button type="submit" class="btn btn-outline-primary">Se connecter</button>
+		</form>
+		<p class= "mt-4">Cliquez sur ce boutton pour vous créér un compte
+		<a href="{{ path('security_registration') }}"><button type="button" class="btn btn-outline-warning">Inscription</button></a></p>
+	</div>
 {% endblock %}
+
+

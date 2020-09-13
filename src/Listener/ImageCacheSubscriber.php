@@ -11,20 +11,20 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 
 //fichier pour gérer l'upload de nos fichiers
 class ImageCacheSubscriber  implements EventSubscriber
-{    
+{
     /**
      * cacheManager
      *
      * @var mixed
      */
-    private $cacheManager;    
+    private $cacheManager;
     /**
      * uploaderHelper
      *
      * @var mixed
      */
     private $uploaderHelper;
-    
+
     /**
      * __contruct
      *
@@ -46,16 +46,15 @@ class ImageCacheSubscriber  implements EventSubscriber
         ];
     }
 
-   public function preRemove(LifecycleEventArgs $args)
+    public function preRemove(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
         if (!$entity instanceof Picture) {
             return;
         }
         $this->cacheManager->remove($this->uploaderHelper->asset($entity, 'imageFile'));
-
     }
-    
+
     public function preUpdate(PreUpdateEventArgs $args)
     {
         $entity = $args->getEntity();
@@ -64,9 +63,6 @@ class ImageCacheSubscriber  implements EventSubscriber
         }
         if ($entity->getImageFile() instanceof UploadedFile) {
             $this->cacheManager->remove($this->uploaderHelper->asset($entity, 'imageFile'));
+        }
     }
-
 }
-
-}
-

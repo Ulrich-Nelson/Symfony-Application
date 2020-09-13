@@ -21,7 +21,7 @@ class PropertySearchType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' =>[
-                    'placeholder' => 'Surface minimale'
+                    'placeholder' => 'Surface minimale',                
                 ]
 
             ])
@@ -55,7 +55,8 @@ class PropertySearchType extends AbstractType
                     '100 km' => 100,
                     '150 km' => 150,
                     '500 km' => 500,
-                    '1000 km' => 1000
+                    '1000 km' => 1000,
+                    'Plus de 1000 km' => 600000
                 ]
             ])
             ->add('lat', HiddenType::class)

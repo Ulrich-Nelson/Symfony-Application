@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Entity;
+
+use App\Entity\User;
 use App\Entity\Picture;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\PropertyRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints\All;
-use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
- * @ORM\Entity(repositoryClass=PropertyRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
  * @UniqueEntity("title")
  */
 class Property
@@ -20,7 +20,8 @@ class Property
     const HEAT = [
         0 => 'Electrique',
         1 => 'Gaz',
-        2 => 'Pas de chauffage'
+        2 => 'A prévoir',
+        3 => 'Pas de chauffage'
     ];
     
     /**
@@ -110,7 +111,7 @@ class Property
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="property", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="property", orphanRemoval=true, cascade={"persist"})
      */
     private $pictures;
 
@@ -133,10 +134,17 @@ class Property
      */
     private $lng;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="properties")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
+    
     public function __construct()
-    {
+    {  
         $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
         $this->options = new ArrayCollection();
         $this->pictures = new ArrayCollection();
     }
@@ -232,7 +240,7 @@ class Property
     {
         return $this->price;
     }
-        
+    
     /**
      * getFormattedPrice pour factoriser le prix des biens
      *
@@ -367,7 +375,7 @@ class Property
 
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
-        $this->updated_at = $updated_at;
+            $this->updated_at = $updated_at;
 
         return $this;
     }
@@ -458,4 +466,19 @@ class Property
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+
+
 }

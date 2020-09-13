@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="container text-center m-t-5">
-		<h1>Voir tous les biens</h1>
+		<h1 class="BiensApplication">Voir tous les biens de l'application</h1>
 
 		<div class="row">
 			{% for property in properties%}
@@ -43,7 +43,7 @@
 			
 			{% endfor %}
 		</div>
-		<div class="pagination">{{ knp_pagination_render(properties) }}</div>
+		<div class="pagination justify-content-center">{{ knp_pagination_render(properties) }}</div>
 	</div>
 {% endblock %}
 

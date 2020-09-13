@@ -1,0 +1,360 @@
+/* traitement de la barre de navigation*/
+
+.logo-name {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.nav-link{
+    text-transform: uppercase;
+}
+
+
+.navbar{
+    background-attachment: fixed;
+}
+
+/* Rendre chaque lien actif*/
+nav-link a:hover, a.active {
+    background: none;
+    color: #C89446;
+    text-transform: uppercase;
+    }
+
+.logo {
+    width: 200px;
+    height: 70px;
+    border-radius: 5px;
+    margin-left: 140%;
+    border-top: 3px solid green;
+    border-bottom: 3px solid yellow;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+}
+
+/* Gérer la page d'acceuil du site*/
+
+.IndexPage {
+    text-align: center;
+    color: whitesmoke;
+    background-image: linear-gradient(green, red, yellow);
+    font-family: 'Lobster', cursive;
+    border-top: 2rem solid green;
+    border-bottom: 2rem solid yellow;
+    border-left: 2rem solid red;
+    border-right: 2rem solid red;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 15px 0;
+    border-radius: 20px;
+    background-attachment: fixed;
+}
+
+.last-biens{
+    text-align:center;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+
+}
+
+/* Styliser la page permettant d'éditer un bien*/
+
+.EditerBien{
+    margin-top: 60px;
+    text-align:center;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+}
+
+/* Styliser la page permettant de d'ajouter un bien*/ 
+
+.ajouterBien{
+    margin-top: 60px;
+    text-align:center;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+   
+}
+
+
+
+/* Gérer la page permettant à un utilisateur de gérer ses biens*/
+
+.gererbien {
+    text-align: center;
+    background-image: linear-gradient(green, red, yellow);
+    font-family: 'Lobster', cursive;
+    border-top: 2rem solid green;
+    border-bottom: 2rem solid yellow;
+    border-left: 2rem solid red;
+    border-right: 2rem solid red;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 15px 0;
+    border-radius: 20px;
+}
+
+.message-text {
+    text-decoration-color: #0099ff;
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 50px;
+}
+
+/* Gérer la page permettant d'afficher les détails d'un bien à un visiteur*/
+
+.messageFlash {
+    font-family: 'Lobster', cursive;
+}
+
+.titleProperty {
+    font-family: 'Lobster', cursive;
+    color: #0099ff;
+}
+
+.Description {
+    font-family: 'Lobster', cursive;
+    color: #0099ff;
+    text-decoration: underline;
+}
+
+.description {
+    font-family: 'Lobster', cursive;
+    color: black;
+}
+
+.infoCarac {
+    font-family: 'Lobster', cursive;
+    color: #C89446;
+}
+
+.caractBiens {
+    font-family: 'Lobster', cursive;
+    color: #0099ff;
+    text-align: center;
+    margin: 25px;
+    text-decoration: underline;
+}
+
+.OptionsBiens {
+    margin-bottom: 50px;
+}
+
+.geolocalisation {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    color: #0099ff;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+/* traitement de la page pour éditer un bien donné*/
+.bienTitle{
+    color: whitesmoke;
+    font-family: 'Lobster', cursive;
+    padding: 20px;
+
+}
+
+.cocherCase{
+    color:#C89446;
+}
+
+.image-insert {
+    color: whitesmoke;
+    font-family: 'Lobster', cursive;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(54, 54, 54, 0.5) 98.24%, rgba(28, 28, 28, .1)), url("/images/Yaounde.jpg") center center / cover no-repeat;
+}
+
+
+/* Styliser la page d'ajout d'un bien donné*/
+.backgroundImage{
+    color: whitesmoke;
+    font-family: 'Lobster', cursive;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(54, 54, 54, 0.5) 98.24%, rgba(28, 28, 28, .1)), url("/images/poste.jpg") center center / cover no-repeat;
+}
+
+
+/* Styliser la page permettant d'ajouter une option pour des biens*/
+.CreerOption, .gererOption, .editerOption, .BiensApplication{
+    margin-top: 60px;
+    text-align:center;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+    color: #C89446;
+}
+
+/* Styliser la page permettant de gérer les options pour mes biens*/
+.message{
+   text-align:center
+}
+
+/* Styliser la page permettant d'afficher les informations détaillées sur un bien*/
+ .DetailBien{
+    margin-top: 60px;
+    text-align:center;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+    font-size: 50px;
+    color: #C89446;  
+ }
+
+
+
+/*traitement de mon footer */
+
+.footer {
+    background-color: #414141;
+    width: 100%;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 50px;
+    margin-top: 200px;
+}
+
+.footer .footer-left, .footer .footer-center, .footer .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* footer left*/
+
+.footer .footer-left {
+    width: 33%;
+    padding-right: 15px;
+}
+
+.footer .about {
+    line-height: 20px;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer .about span {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* footer center*/
+
+.footer .footer-center {
+    width: 30%;
+}
+
+.footer .footer-center i {
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer .footer-center p a {
+    color: #0099ff;
+    text-decoration: none;
+}
+
+/* footer right*/
+
+.footer .footer-right {
+    width: 35%;
+}
+
+.footer h2 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer h2 span {
+    color: #0099ff;
+}
+
+.footer span.color {
+    color: white;
+    padding-top: 10px;
+}
+
+.footer .menu {
+    color: #ffffff;
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer .menu a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer .menu a:hover {
+    color: #0099ff;
+}
+
+.footer .name {
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 30px 0 0 0;
+}
+
+img.image-camer {
+    border-radius: 10px;
+    width: 200px;
+    height: 180px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        font-size: 14px;
+    }
+    .footer .footer-left, .footer .footer-center, .footer .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer .footer-center i {
+        margin-left: 0;
+    }
+}
